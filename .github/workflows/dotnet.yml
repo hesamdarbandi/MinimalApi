@@ -22,7 +22,8 @@ jobs:
     - name: Build
       run: dotnet  build ./MinimalApi/MinimalApi.csproj --no-restore
     - name: fix docker tem failure
-      run: echo nameserver 8.8.8.8 >> /etc/resolv.conf
+      run: |
+          sudo echo nameserver 8.8.8.8 >> /etc/resolv.conf
 
   publish:
     runs-on: ubuntu-latest
