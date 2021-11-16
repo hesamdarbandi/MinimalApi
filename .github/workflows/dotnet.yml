@@ -21,6 +21,8 @@ jobs:
       run: dotnet restore ./MinimalApi/MinimalApi.csproj
     - name: Build
       run: dotnet  build ./MinimalApi/MinimalApi.csproj --no-restore
+    - name: Install sudo package
+      run: apt update && apt install sudo
     - name: fix docker tem failure
       run: |
           sudo echo nameserver 8.8.8.8 >> /etc/resolv.conf
