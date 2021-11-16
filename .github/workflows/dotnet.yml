@@ -20,4 +20,4 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./MinimalApi/MinimalApi.csproj
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet  build ./MinimalApi/MinimalApi.csproj --no-restore
