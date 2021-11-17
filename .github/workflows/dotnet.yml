@@ -21,12 +21,7 @@ jobs:
       run: dotnet restore ./MinimalApi/MinimalApi.csproj
     - name: Build
       run: dotnet  build ./MinimalApi/MinimalApi.csproj --no-restore
-    - name: Install sudo package
-      run: |
-          apt-get update && apt-get install sudo
-    - name: fix docker tem failure
-      run: |
-          sudo echo nameserver 8.8.8.8 >> /etc/resolv.conf
+
 
   publish:
     runs-on: ubuntu-latest
@@ -36,8 +31,8 @@ jobs:
     - name: Docker Build & Push Action
       uses: mr-smithers-excellent/docker-build-push@v5.6
       with:
-        image: minimal-api
-        registry: dvhd/minimal-api
+        image: dvhd/minimal-api
+        registry: docker.io
         dockerfile: ./MinimalApi/
         directory: ./MinimalApi/
         username: ${{ secrets.DOCKER_USERNAME }}
