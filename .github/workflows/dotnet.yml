@@ -34,6 +34,5 @@ jobs:
         image: dvhd/minimal-api
         registry: docker.io
         dockerfile: ./MinimalApi/Dockerfile
-        directory: ./MinimalApi/
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
