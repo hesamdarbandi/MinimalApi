@@ -33,6 +33,17 @@ app.MapPost("/jobs",
 
    });
 
+
+app.MapPost("/jobs",
+    async ([FromBody] Job job, [FromServices] JobContext context, HttpResponse response) =>
+   {
+       await context.Jobs.AddAsync(job);
+       await context.SaveChangesAsync();
+       response.StatusCode = 201;
+       //return Results.Ok()
+
+   });
+
 app.MapGet("/jobs/{id}",
     async (int id, JobContext context) =>
     {
